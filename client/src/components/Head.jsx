@@ -6,10 +6,9 @@ import st from 'ryscott-st';
 const Head = function() {
 
   return (
-    <header className='anchor v c'>
-      {/* <h1>Royal Desserts</h1> */}
-      <img src='/images/dessert.jpg' className='headerImage'/>
-    </header>
+    <div className='head anchor v c'>
+      
+    </div>
   );
 };
 
