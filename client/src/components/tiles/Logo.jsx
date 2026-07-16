@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const Tile = function({content}) {
+const Logo = function({content}) {
   const [isOpen, setIsOpen] = useState(false);
 
   setTimeout(() => {
@@ -14,4 +14,4 @@ const Tile = function({content}) {
   );
 };
 
-export default Tile;
+export default Logo;

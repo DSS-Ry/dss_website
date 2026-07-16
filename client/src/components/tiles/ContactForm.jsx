@@ -32,7 +32,7 @@ const ContactForm = function() {
         <input type='email' name='user_email' placeholder='Email?' required/>
         <textarea name='message' placeholder="What's up?" required/>
         <b className='sendButton' onClick={handleSubmit}>
-          send
+          SEND
         </b>
       </form>
       </>
@@ -41,9 +41,10 @@ const ContactForm = function() {
 
   const renderSent = function() {
     return (
-      <div className='sentBox c'>
-        <br/>
-        Message sent! You will receive a response shortly.
+      <div className='sentBox v'>
+        Message sent! 
+        <br/><br/>
+        We will get back to you as soon as possible.
       </div>
     );
   };

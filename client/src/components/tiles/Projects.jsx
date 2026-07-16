@@ -13,13 +13,20 @@ const Projects = function({content, num}) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  setTimeout(() => {
-    setIsOpen(true);
-  }, 1000 + (num * 200));
+  useEffect(() => {
+    const openTimer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1000 + (num * 200));
 
-  setTimeout(() => {
-    setIsLoaded(true);
-  }, 2200 + (num * 200));
+    const loadTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2200 + (num * 200));
+
+    return () => {
+      clearTimeout(openTimer);
+      clearTimeout(loadTimer);
+    };
+  }, [num]);
 
   useEffect(() => {
     if (!isLoaded) {
@@ -34,7 +41,7 @@ const Projects = function({content, num}) {
   }, [isLoaded]);
 
   return (
-    <div className={`tile ${!isOpen ? 'closed v' : 'v'}`}>
+    <div className={`tile projectTile ${!isOpen ? 'closed v' : 'v'}`}>
       <div className={`tileContentContainer ${isLoaded ? 'visible' : 'hidden'} v`}>
         {/* <b>Recent Projects</b> */}
         <div className='projects'>

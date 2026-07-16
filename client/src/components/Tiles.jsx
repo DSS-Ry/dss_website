@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import '../styles/tile.css';
 
@@ -7,10 +7,17 @@ import Logo from './tiles/Logo.jsx';
 import Process from './tiles/Process.jsx';
 import Projects from './tiles/Projects.jsx';
 import Contact from './tiles/Contact.jsx';
+import Services from './tiles/Services.jsx';
 
 import content from './tiles/Content.jsx';
 
 const Tiles = function() {
+  const [expandedTile, setExpandedTile] = useState(null);
+
+  const toggleExpandedTile = (tileName) => {
+    setExpandedTile((current) => (current === tileName ? null : tileName));
+  };
+
   return (
     <div className='tiles v'>
       <div className='tileRow h'>
@@ -18,8 +25,18 @@ const Tiles = function() {
         <Tile content={content.intro} num={1}/>
       </div>
       <div className='tileRow h'>
-        <Tile content={content.services} num={2}/>
-        <Process num={3}/>
+        <Services
+          num={2}
+          isExpanded={expandedTile === 'services'}
+          isCollapsed={Boolean(expandedTile) && expandedTile !== 'services'}
+          onToggle={() => toggleExpandedTile('services')}
+        />
+        <Process
+          num={3}
+          isExpanded={expandedTile === 'process'}
+          isCollapsed={Boolean(expandedTile) && expandedTile !== 'process'}
+          onToggle={() => toggleExpandedTile('process')}
+        />
       </div>
       <div className='tileRow h'>
         <Projects num={4}/>

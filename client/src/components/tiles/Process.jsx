@@ -6,20 +6,27 @@ import {IoCodeSlash} from 'react-icons/io5';
 import {IoRocketSharp} from 'react-icons/io5';
 import {IoChatbubbles} from 'react-icons/io5';
 
-const Tile = function({content, num}) {
+const Process = function({content, num}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  setTimeout(() => {
-    setIsOpen(true);
-  }, 1000 + (num * 200));
+  useEffect(() => {
+    const openTimer = setTimeout(() => {
+      setIsOpen(true);
+    }, 1000 + (num * 200));
 
-  setTimeout(() => {
-    setIsLoaded(true);
-  }, 2200 + (num * 200));
+    const loadTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2200 + (num * 200));
+
+    return () => {
+      clearTimeout(openTimer);
+      clearTimeout(loadTimer);
+    };
+  }, [num]);
 
   return (
-    <div className={`tile process ${!isOpen ? 'closed v' : 'v'}` }>
+    <div className={`tile processTile ${!isOpen ? 'closed v' : 'v'}`}>
       <div className={`tileContentContainer ${isLoaded ? 'visible' : 'hidden'} v`}>
         <b>Our Process</b>
         <div className='processInfo h'>
@@ -49,4 +56,4 @@ const Tile = function({content, num}) {
   );
 };
 
-export default Tile;
+export default Process;
