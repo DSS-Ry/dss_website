@@ -201,6 +201,20 @@ textarea:focus {
   color: var(--mercury);
 }
 
+.hoverTooltip {
+  position: fixed;
+  z-index: 1000;
+  width: 180px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(53, 17, 17, 0.95);
+  color: white;
+  font-size: 12px;
+  line-height: 1.4;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
 .closed {
   width: 36px;
   height: 36px;

@@ -6,9 +6,18 @@ import {IoCodeSlash} from 'react-icons/io5';
 import {IoRocketSharp} from 'react-icons/io5';
 import {IoChatbubbles} from 'react-icons/io5';
 
+const processItems = [
+  {title: 'discover', detail: 'We learn your goals, constraints, and audience first.', icon: <IoSearch size={48}/>},
+  {title: 'design', detail: 'We shape the experience and technical approach around your needs.', icon: <IoPencil size={48}/>},
+  {title: 'build', detail: 'We turn the plan into a working solution with care and speed.', icon: <IoCodeSlash size={48}/>},
+  {title: 'launch', detail: 'We prepare release, deployment, and communication for a smooth debut.', icon: <IoRocketSharp size={48}/>},
+  {title: 'support', detail: 'We keep the system healthy with updates and ongoing support.', icon: <IoChatbubbles size={48}/>} 
+];
+
 const Process = function({content, num}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [tooltip, setTooltip] = useState({visible: false, text: '', x: 0, y: 0});
 
   useEffect(() => {
     const openTimer = setTimeout(() => {
@@ -25,33 +34,40 @@ const Process = function({content, num}) {
     };
   }, [num]);
 
+  const handleMouseMove = (event, text) => {
+    setTooltip({visible: true, text, x: event.clientX - 98, y: event.clientY + 24});
+  };
+
+  const handleMouseLeave = () => {
+    setTooltip((current) => ({...current, visible: false}));
+  };
+
   return (
     <div className={`tile processTile ${!isOpen ? 'closed v' : 'v'}`}>
       <div className={`tileContentContainer ${isLoaded ? 'visible' : 'hidden'} v`}>
         <b>Our Process</b>
         <div className='processInfo h'>
-          <div className='processItem v'>
-            <div className='processIcon v'><IoSearch size={48}/></div>
-            <b className='processTitle'>discover</b>
-          </div>
-          <div className='processItem v'>
-            <div className='processIcon v'><IoPencil size={48}/></div>
-            <b className='processTitle'>design</b>
-          </div>
-          <div className='processItem v'>
-            <div className='processIcon v'><IoCodeSlash size={48}/></div>
-            <b className='processTitle'>build</b>
-          </div>
-          <div className='processItem v'>
-            <div className='processIcon v'><IoRocketSharp size={48}/></div>
-            <b className='processTitle'>launch</b>
-          </div>
-          <div className='processItem v'>
-            <div className='processIcon v'><IoChatbubbles size={48}/></div>
-            <b className='processTitle'>support</b>
-          </div>
+          {processItems.map((item) => (
+            <div
+              key={item.title}
+              className='processItem v'
+              onMouseMove={(event) => handleMouseMove(event, item.detail)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className='processIcon v'>{item.icon}</div>
+              <b className='processTitle'>{item.title}</b>
+            </div>
+          ))}
         </div>
       </div>
+      {tooltip.visible && (
+        <div
+          className='hoverTooltip'
+          style={{left: tooltip.x, top: tooltip.y}}
+        >
+          {tooltip.text}
+        </div>
+      )}
     </div>
   );
 };
