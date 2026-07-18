@@ -1,17 +1,13 @@
 import React, {useState, useEffect} from 'react';
 
-const projectImages = [
-  {title: 'communitii', src: '/images/communitii_screen.png'},
-  {title: 'savor', src: '/images/savor_screen.png'},
-  {title: 'stokk', src: '/images/stokk_screen.png'},
-  {title: 'neighborly', src: '/images/neighborly_screen.png'},
-  {title: 'puzzl', src: '/images/puzzle_screen.png'}
-];
+import {FaArrowLeft} from 'react-icons/fa';
+import {FaArrowRight} from 'react-icons/fa';
 
 const Projects = function({content, num}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const openTimer = setTimeout(() => {
@@ -29,7 +25,7 @@ const Projects = function({content, num}) {
   }, [num]);
 
   useEffect(() => {
-    if (!isLoaded) {
+    if (!isLoaded || isModalOpen) {
       return undefined;
     }
 
@@ -38,27 +34,100 @@ const Projects = function({content, num}) {
     }, 3500);
 
     return () => clearInterval(slideshowTimer);
-  }, [isLoaded]);
+  }, [isLoaded, isModalOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsModalOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  const currentImage = projectImages[activeImageIndex];
+
+  const handleModalImageClick = function(){
+    setIsModalOpen(false);
+  };
 
   return (
     <div className={`tile projectTile ${!isOpen ? 'closed v' : 'v'}`}>
       <div className={`tileContentContainer ${isLoaded ? 'visible' : 'hidden'} v`}>
-        {/* <b>Recent Projects</b> */}
         <div className='projects'>
           <div className='projectSlideshow'>
             <div className='projectTitle'>
-              {projectImages[activeImageIndex].title}
+              {currentImage.title}
             </div>
             <img
               className='projectScreenshot'
-              src={projectImages[activeImageIndex].src}
-              alt={`Project screenshot ${projectImages[activeImageIndex].title}`}
+              src={currentImage.src}
+              alt={`Project screenshot ${currentImage.title}`}
+              onClick={() => setIsModalOpen(true)}
             />
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className='imageModalOverlay' onClick={() => setIsModalOpen(false)}>
+          <div className='imageModal' onClick={(event) => event.stopPropagation()}>
+            <div className='imageModalViewer'>
+              <img
+                src={currentImage.src}
+                alt={`Project screenshot ${currentImage.title}`}
+                className='imageModalImage'
+                onClick={handleModalImageClick}
+              />
+              <div className='imageModalInfo'>
+                <h3>{currentImage.title}</h3>
+                <p>{currentImage.info}</p>
+              </div>
+              <button className='leftButton' onClick={() => setActiveImageIndex((prev) => (prev - 1 + projectImages.length) % projectImages.length)} aria-label='Previous image'>
+                <FaArrowLeft size={24}/>
+              </button>
+              <button className='rightButton' onClick={() => setActiveImageIndex((prev) => (prev + 1) % projectImages.length)} aria-label='Next image'>
+                <FaArrowRight size={24}/>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
+const projectImages = [
+  {
+    title: 'communitii',
+    src: '/images/communitii_screen.png',
+    info: 'A community-driven platform focused on connection and local engagement.'
+  },
+  {
+    title: 'savor',
+    src: '/images/savor_screen.png',
+    info: 'A food-forward experience designed for discovery, discovery, and delight.'
+  },
+  {
+    title: 'stokk',
+    src: '/images/stokk_screen.png',
+    info: 'A streamlined marketplace experience built around simple transactions.'
+  },
+  {
+    title: 'neighborly',
+    src: '/images/neighborly_screen.png',
+    info: 'A neighborhood-focused service hub for trusted local interactions.'
+  },
+  {
+    title: 'puzzl',
+    src: '/images/puzzle_screen.png',
+    info: 'A polished product experience designed around exploration and play.'
+  }
+];
 
 export default Projects;

@@ -5,7 +5,9 @@ const content = {
     <div className='tileContent v'>
       <b>We are Mercury Technologies.</b>
       <br/>
-      We build and maintain modern software and provide IT services for businesses that need websites, custom applications, automation, AI integration. 
+      We build and maintain modern software and provide IT services for businesses that need websites, custom applications, automation, AI integration.
+      <br/>
+      <br/> 
       Fast, clean, and engineered to last.
     </div>
   )
