@@ -106,27 +106,27 @@ const projectImages = [
   {
     title: 'communitii',
     src: '/images/communitii_screen.png',
-    info: 'A community-driven platform focused on connection and local engagement.'
+    info: 'A community-oriented social media platform focused on connection and local engagement.'
   },
   {
     title: 'savor',
     src: '/images/savor_screen.png',
-    info: 'A food-forward experience designed for discovery, discovery, and delight.'
+    info: 'A user-friendly restaurant point of service application designed for efficiency.'
   },
   {
     title: 'stokk',
     src: '/images/stokk_screen.png',
-    info: 'A streamlined marketplace experience built around simple transactions.'
+    info: 'A simple, streamlined stock market scanner designed to offer real-time insights to investors.'
   },
   {
     title: 'neighborly',
     src: '/images/neighborly_screen.png',
-    info: 'A neighborhood-focused service hub for trusted local interactions.'
+    info: 'A neighborhood-focused communications application for trusted local interactions.'
   },
   {
     title: 'puzzl',
     src: '/images/puzzle_screen.png',
-    info: 'A polished product experience designed around exploration and play.'
+    info: 'A polished product experience designed around crisp aesthetics and play.'
   }
 ];
 
