@@ -248,7 +248,7 @@ textarea {
 }
 
 textarea {
-  margin: 3px 0;
+  margin: 3px 0;  
 }
 
 input:focus,
@@ -350,4 +350,51 @@ textarea:focus {
 .closed {
   width: 36px;
   height: 36px;
+}
+
+@media (max-width: 769px) {
+  .tiles {
+    width: 100%;
+  }
+
+  .tile {
+    width: calc(90%);
+    height: auto;
+    margin: 1vh 0;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    height: 25vh;
+    width: 25vh;
+    margin: 37.5vh 0;
+  }
+
+  .processInfo {
+    padding: 4px;
+  }
+
+  .processItem {
+    margin: 4px;
+    width: 48px;
+  }
+  
+  .processTitle {
+    font-size: 0.8rem;
+  }
+
+  .projectTile {
+    height: unset;
+    aspect-ratio: 16/9;
+  }
+
+  .projectSlideshow {
+    width: unset;
+    aspect-ratio: 16/9;
+  }
+
+  .contactTile {
+    height: 200px;
+    margin-bottom: 10vh;
+  }
 }

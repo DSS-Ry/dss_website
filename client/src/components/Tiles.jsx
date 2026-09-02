@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+import st from 'ryscott-st';
 import '../styles/tile.css';
 
 import Tile from './tiles/Tile.jsx';
@@ -12,11 +13,18 @@ import Services from './tiles/Services.jsx';
 import content from './tiles/Content.jsx';
 
 const Tiles = function() {
-  const [expandedTile, setExpandedTile] = useState(null);
-
-  const toggleExpandedTile = (tileName) => {
-    setExpandedTile((current) => (current === tileName ? null : tileName));
-  };
+  if (st.isMobile) {
+    return (
+      <div className='tiles v'>
+        <Logo num={0}/>
+        <Tile content={content.intro} num={1}/>
+        <Services num={2}/>
+        <Process num={3}/>
+        <Projects num={4}/>
+        <Contact num={5}/>
+      </div>
+    )
+  }
 
   return (
     <div className='tiles v'>
@@ -25,18 +33,8 @@ const Tiles = function() {
         <Tile content={content.intro} num={1}/>
       </div>
       <div className='tileRow h'>
-        <Services
-          num={2}
-          isExpanded={expandedTile === 'services'}
-          isCollapsed={Boolean(expandedTile) && expandedTile !== 'services'}
-          onToggle={() => toggleExpandedTile('services')}
-        />
-        <Process
-          num={3}
-          isExpanded={expandedTile === 'process'}
-          isCollapsed={Boolean(expandedTile) && expandedTile !== 'process'}
-          onToggle={() => toggleExpandedTile('process')}
-        />
+        <Services num={2}/>
+        <Process num={3}/>
       </div>
       <div className='tileRow h'>
         <Projects num={4}/>

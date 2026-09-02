@@ -8,22 +8,40 @@ import Foot from './Foot.jsx';
 import Tiles from './Tiles.jsx';
 import Alert from './Alert.jsx';
 
-const isMobile = st.isMobile = window.innerWidth < 1024;
+const mobile_break = 769;
 
 const App = function() {
   const [alerts, setAlerts] = st.newState('alerts', useState(0));
-  const [expandedTile, setExpandedTile] = st.newState('expandedTile', useState(null));
+  const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
   useEffect(()=>{
-    console.log(expandedTile);
-  }, [expandedTile]);
+    const handleResize = function() {
+      if (window.innerWidth < mobile_break) {
+        setIsMobile(true);
+      } 
+      
+      if (window.innerWidth >= mobile_break) {
+        setIsMobile(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return ()=>{
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(()=>{
+    console.log(isMobile);
+  }, [isMobile]);
 
   return (
     <div id='app' className='app v'>
-      <Head/>
+      {!st.isMobile && <Head/>}
       <Tiles/>
       <Alert/>
-      <Foot/>
+      {!st.isMobile && <Foot/>}
     </div>
   );
 };

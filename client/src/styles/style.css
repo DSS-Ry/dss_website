@@ -171,3 +171,21 @@ div {
 ::-webkit-scrollbar-thumb {
   background-color: var(--turq);
 }
+
+
+@media (max-width: 769px) {
+  html {
+    background: url("../texture.svg") repeat, 
+    linear-gradient(180deg, rgb(245, 236, 236) 5%, transparent 30%, #e9d4d1 95%);
+    background-color: var(--bg);
+  }
+
+  .app {
+    overflow: scroll;
+    justify-content: unset;
+  }
+  
+  .head, .foot {
+    position: unset;
+  }
+}

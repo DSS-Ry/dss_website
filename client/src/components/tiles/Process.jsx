@@ -1,23 +1,48 @@
 import React, {useState, useEffect} from 'react';
 
+import st from 'ryscott-st';
+
 import {IoSearch} from 'react-icons/io5';
 import {IoPencil} from 'react-icons/io5';
 import {IoCodeSlash} from 'react-icons/io5';
 import {IoRocketSharp} from 'react-icons/io5';
 import {IoChatbubbles} from 'react-icons/io5';
 
-const processItems = [
-  {title: 'discover', detail: 'We learn your goals, constraints, and audience first.', icon: <IoSearch size={48}/>},
-  {title: 'design', detail: 'We shape the experience and technical approach around your needs.', icon: <IoPencil size={48}/>},
-  {title: 'build', detail: 'We turn the plan into a working solution with care and speed.', icon: <IoCodeSlash size={48}/>},
-  {title: 'launch', detail: 'We prepare release, deployment, and communication for a smooth debut.', icon: <IoRocketSharp size={48}/>},
-  {title: 'support', detail: 'We keep the system healthy with updates and ongoing support.', icon: <IoChatbubbles size={48}/>} 
-];
-
 const Process = function({content, num}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isOpen, setIsOpen] = useState(st.isMobile ? true : false);
+  const [isLoaded, setIsLoaded] = useState(st.isMobile ? true : false);
   const [tooltip, setTooltip] = useState({visible: false, text: '', x: 0, y: 0});
+
+  const iconSize = st.isMobile ? 32 : 48;
+
+  const processItems = [
+    {title: 'discover', detail: 'We learn your goals, constraints, and audience first.', icon: <IoSearch size={iconSize}/>},
+    {title: 'design', detail: 'We shape the experience and technical approach around your needs.', icon: <IoPencil size={iconSize}/>},
+    {title: 'build', detail: 'We turn the plan into a working solution with care and speed.', icon: <IoCodeSlash size={iconSize}/>},
+    {title: 'launch', detail: 'We prepare release, deployment, and communication for a smooth debut.', icon: <IoRocketSharp size={iconSize}/>},
+    {title: 'support', detail: 'We keep the system healthy with updates and ongoing support.', icon: <IoChatbubbles size={iconSize}/>} 
+  ];
+
+  if (st.isMobile) {
+    return (
+      <div className={`tile processTile v`}>
+        <div className={`tileContentContainer visible v`}>
+          <b>Our Process</b>
+          <div className='processInfo h'>
+            {processItems.map((item) => (
+              <div
+                key={item.title}
+                className='processItem v'
+              >
+                <div className='processIcon v'>{item.icon}</div>
+                <b className='processTitle'>{item.title}</b>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   useEffect(() => {
     const openTimer = setTimeout(() => {

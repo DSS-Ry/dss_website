@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+import st from 'ryscott-st';
+
 const serviceDetails = [
   'Custom websites and web apps built for modern businesses.',
   'Reliable software tools and internal systems that scale.',
@@ -12,6 +14,25 @@ const Services = function({num}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [tooltip, setTooltip] = useState({visible: false, text: '', x: 0, y: 0});
+
+  if (st.isMobile) {
+    return (
+      <div className={`tile serviceTile 'v'}`}>
+        <div className={`tileContentContainer visible h`}>
+          <div className='tileContent services h'>
+            {serviceDetails.map((detail, index) => (
+              <div
+                key={detail}
+                className='service v'
+              >
+                {['Web Development', 'Software', 'Automation', 'AI Integration', 'IT Services'][index]}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   useEffect(() => {
     const openTimer = setTimeout(() => {

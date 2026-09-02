@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import '../styles/head.css';
 import st from 'ryscott-st';
 
 const Head = function() {

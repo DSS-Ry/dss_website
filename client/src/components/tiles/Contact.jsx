@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
+import st from 'ryscott-st';
+
 import ContactForm from './ContactForm.jsx';
 
 const Contact = function({content, num}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isOpen, setIsOpen] = useState(st.isMobile ? true : false);
+  const [isLoaded, setIsLoaded] = useState(st.isMobile ? true : false);
 
   useEffect(() => {
     const openTimer = setTimeout(() => {
