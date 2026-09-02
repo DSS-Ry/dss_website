@@ -32,10 +32,6 @@ const App = function() {
     };
   }, []);
 
-  useEffect(()=>{
-    console.log(isMobile);
-  }, [isMobile]);
-
   return (
     <div id='app' className='app v'>
       {!st.isMobile && <Head/>}
