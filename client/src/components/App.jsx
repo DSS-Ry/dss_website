@@ -5,13 +5,10 @@ import st from 'ryscott-st';
 
 import Head from './Head.jsx';
 import Foot from './Foot.jsx';
-import Tiles from './Tiles.jsx';
-import Alert from './Alert.jsx';
 
 const mobile_break = 769;
 
 const App = function() {
-  const [alerts, setAlerts] = st.newState('alerts', useState(0));
   const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
   useEffect(()=>{
@@ -26,18 +23,12 @@ const App = function() {
     };
 
     window.addEventListener('resize', handleResize);
-
-    return ()=>{
-      window.removeEventListener('resize', handleResize);
-    };
   }, []);
 
   return (
     <div id='app' className='app v'>
-      {!st.isMobile && <Head/>}
-      <Tiles/>
-      <Alert/>
-      {!st.isMobile && <Foot/>}
+      <Head/>
+      <Foot/>
     </div>
   );
 };
