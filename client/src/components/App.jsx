@@ -3,12 +3,19 @@ import React, {useState, useEffect} from 'react';
 import '../styles/style.css';
 import st from 'ryscott-st';
 
-import Head from './Head.jsx';
+import Nav from './Nav.jsx';
 import Foot from './Foot.jsx';
+
+import Home from './pages/Home.jsx';
 
 const mobile_break = 769;
 
+const pages = {
+  home: <Home/>
+};
+
 const App = function() {
+  const [page, setPage] = st.newState('page', useState('home'));
   const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
   useEffect(()=>{
@@ -26,8 +33,9 @@ const App = function() {
   }, []);
 
   return (
-    <div id='app' className='app v'>
-      <Head/>
+    <div id='app' className='app'>
+      <Nav/>
+      {pages[page]}
       <Foot/>
     </div>
   );

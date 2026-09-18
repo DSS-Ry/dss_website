@@ -2,13 +2,12 @@ import React, {useState, useEffect} from 'react';
 
 import st from 'ryscott-st';
 
-const Head = function() {
-
+const Tile = function({content}) {
   return (
-    <div className='head anchor v c'>
-      
+    <div className='tile h'>
+      {content}
     </div>
   );
 };
 
-export default Head;
+export default Tile;

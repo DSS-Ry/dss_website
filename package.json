@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "dss_website",
   "version": "0.0.1",
   "description": "",
   "author": "Ry Scott",
@@ -45,5 +45,8 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.11.1"
+  },
+  "allowScripts": {
+    "protobufjs@7.3.2": true
   }
 }

@@ -26,10 +26,10 @@
   --shadow: #8b4b4b73;
 }
 
-html {
-  background: url("../texture.svg") repeat, 
-  linear-gradient(180deg, white 5%, transparent 30%, #e9d4d1 95%, var(--mercury) 95%);
-  background-color: var(--bg);
+html { 
+  background-image: url("/client/dist/images/skyline.png");
+  background-size: cover;
+ 
 }
 
 html, body, #root {
@@ -42,8 +42,9 @@ html, body, #root {
   align-items: center;
   padding: 0;
   margin: 0;
-  font-family: Jost, sans-serif;
+  font-family: Sofia Sans Condensed, sans-serif;
   font-size: 1rem;
+  letter-spacing: 0.05rem;
 }
 
 #app {
@@ -53,33 +54,37 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   overflow: scroll;
-  color: var(--darkMercury);
+  color: #295e8e;
+  
+  background: url("../texture.svg"), linear-gradient(180deg, white 2%, transparent 50%, #559ddc 95%);
+  background-size: 4px 4px, auto;
 }
 
-h1, h2, h3 {
+h1, h2 {
   padding: 4vh 0;
   margin: 0;
 }
 
 h1, h2 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 500;
 }
 
 p {
-  padding: 2vh;
+  padding: 2vh 0;
   margin: 0;
 }
 
@@ -108,20 +113,6 @@ p {
 
 /* --- */
 
-.alert {
-  z-index: 110;
-  position: absolute;
-  bottom: 10vh;
-  min-width: 200px;
-  width: max-content;
-  padding: 1vh;
-  border-radius: 25px;
-  box-shadow: 0 2px 3px #2a2a2a;
-  background-color: var(--grass);
-  color: var(--bg);
-  font-size: 18px;
-}
-
 .visible {
   visibility: visible;
   opacity: 1;
@@ -131,31 +122,101 @@ p {
 .hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 1s, opacity 1s linear;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
 
 div {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.fade {
+  mask-image: linear-gradient(to right, transparent 40%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 40%, black 100%);
+}
+
 /* */
 
-.head {
+.head, .foot {
   width: 100%;
-  height: 5vh;
   flex: none;
-  background: var(--mercury);
+  background: white;
+  align-items: center;
+}
+
+.head {
   position: absolute;
   top: 0;
+  z-index: 10;
+  height: 140px;
+  border-bottom: 1px solid #e2e6ea;
+  transition: height 0.5s ease;
+  box-shadow: 0px 1px 1px #295d8e29;
 }
 
 .foot {
-  width: 100%;
-  height: 5vh;
-  flex: none;
-  background: var(--mercury);
   position: absolute;
   bottom: 0;
+  height: 40px;
+  border-top: 1px solid #5c8bb4;
+  z-index: 10;
+}
+
+.logoDropSvg,
+.logoTextSvg {
+  height: 90%;
+  margin: 0 24px;
+  position: absolute;
+}
+
+.links {
+  position: absolute;
+  right: 0;
+  margin-right: 24px;
+}
+
+.links div{
+  margin-left: 24px;
+
+  font-family: Sofia Sans Condensed, sans-serif;  
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+}
+
+.home {
+  margin-top: 140px;
+  margin-bottom: 40px;
+}
+
+.tile {
+  background-color: rgba(255, 255, 255, 1);
+  width: 1200px;
+  height: 600px;
+  padding: 24px;
+  margin: 24px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 2px 1px #295d8e29;
+}
+
+.heroTile {
+  position: relative;
+}
+
+.heroImage {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.heroInfo {
+  width: 70%;
+  padding-left: 24px;
+  padding-top: 60px;
+  z-index: 1;
 }
 
 /* SCROLLBAR */
@@ -174,18 +235,5 @@ div {
 
 
 @media (max-width: 769px) {
-  html {
-    background: url("../texture.svg") repeat, 
-    linear-gradient(180deg, rgb(245, 236, 236) 5%, transparent 30%, #e9d4d1 95%);
-    background-color: var(--bg);
-  }
-
-  .app {
-    overflow: scroll;
-    justify-content: unset;
-  }
   
-  .head, .foot {
-    position: unset;
-  }
 }
