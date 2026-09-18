@@ -149,7 +149,7 @@ div {
   z-index: 10;
   height: 140px;
   border-bottom: 1px solid #e2e6ea;
-  transition: height 0.5s ease;
+  /* transition: height 0.5s ease; */
   box-shadow: 0px 1px 1px #295d8e29;
 }
 
@@ -163,7 +163,7 @@ div {
 
 .logoDropSvg,
 .logoTextSvg {
-  height: 90%;
+  height: 80%;
   margin: 0 24px;
   position: absolute;
 }
@@ -176,14 +176,25 @@ div {
 
 .links div{
   margin-left: 24px;
-
-  font-family: Sofia Sans Condensed, sans-serif;  
-  font-weight: 600;
+  padding: 4px;
+  padding-left: calc(4px + 0.15rem);
+  font-family: Sofia Sans Condensed, sans-serif;
+  font-weight: 700;
   font-size: 1.2rem;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.15rem;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: transparent;
+  cursor: pointer;
+
+  transition: border-color 0.2s;
 }
 
-.home {
+.links div:hover {
+  border-color: #295e8e;
+}
+
+.page {
   margin-top: 140px;
   margin-bottom: 40px;
 }

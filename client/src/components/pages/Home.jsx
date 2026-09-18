@@ -4,7 +4,7 @@ import st from 'ryscott-st';
 
 const Home = function() {
   return (
-    <div className='home v'>
+    <div className='home page v'>
       <div className='heroTile tile h'>
         <img className='heroImage fade' src='/images/dss_hero.jpg'/>
         <div className='heroInfo'>

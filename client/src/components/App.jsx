@@ -7,11 +7,19 @@ import Nav from './Nav.jsx';
 import Foot from './Foot.jsx';
 
 import Home from './pages/Home.jsx';
+import Manufacturers from './pages/Manufacturers.jsx';
+import Services from './pages/Services.jsx';
+import About from './pages/About.jsx';
+import Contact from './pages/Contact.jsx';
 
 const mobile_break = 769;
 
 const pages = {
-  home: <Home/>
+  home: <Home/>,
+  manufacturers: <Manufacturers/>,
+  services: <Services/>,
+  about: <About/>,
+  contact: <Contact/>
 };
 
 const App = function() {
