@@ -13,7 +13,6 @@ const Nav = function() {
     const app = document.querySelector('#app');
     const handleScroll = function() {
         setNavHeight(Math.max(40, 140 - app.scrollTop));
-        console.log('test', navHeight);
     };
 
     app.addEventListener('scroll', handleScroll);
