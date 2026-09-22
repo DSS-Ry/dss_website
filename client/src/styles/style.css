@@ -293,7 +293,7 @@ div {
   height: 500px;
   overflow: hidden;
   border-radius: 6px;
-  box-shadow: 0px 2px 2px 2px #295d8e8c;
+  box-shadow: 0px 4px 2px #295d8eab;
 }
 
 .carouselTrack {
@@ -308,6 +308,32 @@ div {
   width: 500px;
   height: 500px;
   object-fit: cover;
+}
+
+.benefits {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.benefitTile {
+  background: white;
+  padding: 16px 12px;
+  margin: 6px;
+  color: var(--navy);
+  text-shadow: none;
+  border-radius: 12px;
+  width: 260px;
+  text-align: center;
+  justify-content: start;
+}
+
+.benefitTitle svg {
+  margin: 4px;
+}
+
+.benefitIconContainer {
+  width: 48px;
+  height: 48px;
 }
 
 /* SCROLLBAR */
