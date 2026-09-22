@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
+import '../../styles/home.css';
 import st from 'ryscott-st';
 
 import Carousel from './Carousel.jsx';
@@ -42,7 +43,7 @@ const Home = function() {
         <div className='heroInfo'>
           <h2>The Plumbing Manufacturer's Rep Agency <br/>that works for YOU!</h2>
           <h3>We help you <b>specify, procure, install,</b> and <b>maintain</b> the best plumbing products on the market.</h3>
-          <div className='linkButton v' onClick={()=>{;st.setPage('services')}}>
+          <div className='linkButton v' onClick={()=>{st.setPage('services')}}>
             LEARN MORE!
           </div>
         </div>

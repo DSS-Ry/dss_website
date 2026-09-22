@@ -1,0 +1,42 @@
+.manTile {
+  height: 720px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.manTile h1 {
+  padding: 12px;
+  padding-bottom: 24px;
+}
+
+.manufacturersLogos {
+  width: 80%;    
+}
+
+.brandsTile {
+  flex-wrap: wrap;
+  text-shadow: none;
+  -webkit-text-stroke: unset;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--navy);
+  height: 480px;
+}
+
+.brandTile {
+  background: white;
+  padding: 12px;
+  margin: 6px;
+  height: 48px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  transition: translate 0.2s, box-shadow 0.2s;
+  box-shadow: 0px 4px 2px #295d8eab;
+}
+
+.brandTile:hover {
+  translate: 0px -4px;
+  box-shadow: 0px 7px 4px #295d8e6d;
+}

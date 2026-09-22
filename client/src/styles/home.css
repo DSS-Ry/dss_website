@@ -1,0 +1,108 @@
+.heroTile {
+  position: relative;
+}
+
+.heroImage {
+  position: absolute;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.heroInfo {
+  width: 70%;
+  padding-left: 24px;
+  padding-top: 60px;
+  z-index: 1;
+}
+
+.introInfo {
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel {
+  flex: none;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0px 4px 2px #295d8eab;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.6s ease;
+  width: 500px;
+  height: 500px;
+}
+
+.carouselSlide img {
+  display: block;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.benefits {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.benefitTile {
+  background: white;
+  padding: 16px 12px;
+  margin: 6px;
+  color: var(--navy);
+  text-shadow: none;
+  border-radius: 12px;
+  width: 260px;
+  text-align: center;
+  justify-content: start;
+}
+
+.benefitTitle svg {
+  margin: 4px;
+}
+
+.benefitIconContainer {
+  width: 48px;
+  height: 48px;
+}
+
+.countTile {
+  width: 300px;
+}
+
+.countTile h1 {
+  padding: 12px;
+  padding-top: 24px;
+}
+
+.countTile h2 {
+  padding: 0;
+}
+
+.countIconContainer {
+  background-color: var(--navy);
+  border-radius: 100%;
+  width: 72px;
+  aspect-ratio: 1;
+  box-shadow: 0px 2px 2px 2px #295d8e8c;
+}
+
+.helpTile {
+  height: 480px;
+}
+
+.helpTile h2 {
+  padding: 0;
+  text-align: center;
+}
