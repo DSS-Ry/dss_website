@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import st from 'ryscott-st';
 
 import Carousel from './Carousel.jsx';
+import CountUp from '../CountUp.jsx';
 
 import {IoMegaphone} from "react-icons/io5";
 import {IoLibrary} from "react-icons/io5";
@@ -11,6 +12,9 @@ import {IoBagCheck} from "react-icons/io5";
 import {FaMoneyBill1} from "react-icons/fa6";
 import {AiFillSchedule} from "react-icons/ai";
 import {FaThumbsUp} from "react-icons/fa";
+import {HiMiniUserGroup} from "react-icons/hi2";
+import {FaCakeCandles} from "react-icons/fa6";
+import {FaLocationDot} from "react-icons/fa6";
 
 
 const images = [
@@ -27,7 +31,7 @@ const benefits = [
   {icon: <IoBagCheck size={48}/>, title: 'Specify with Confidence', info: "Tap into our knowledge base so you can confidently specify, purchase, and install products from the brands we represent."},
   {icon: <FaMoneyBill1 size={48}/>, title: 'Stay on Budget', info: "Choose from thousands of budget-friendly products from our trusted brands. Get what you need without having to sacrifice quality."},
   {icon: <AiFillSchedule size={48}/>, title: 'Stay on Schedule', info: "Many brands we represent have quick-ship capabilities. Additionally, we have two stocking warehouses to ensure you can get what you need faster. "},
-  {icon: <FaThumbsUp size={42}/>, title: 'Skip the Hassle', info: "Get timely and accurate responses to your questions. No call menus. No long hold times. Just friendly people who are happy to help you."}
+  {icon: <FaThumbsUp size={40}/>, title: 'Skip the Hassle', info: "Get timely and accurate responses to your questions. No call menus. No long hold times. Just friendly people who are happy to help you."}
 ];
 
 const Home = function() {
@@ -60,7 +64,7 @@ const Home = function() {
         <h3>Matt Johnson, Principal</h3>
       </div>
       <div className='blueTile v'>
-        <h2 style={{padding: '18px'}}>Benefits of Working with Us</h2>
+        <h2 style={{padding: '18px', paddingBottom: '30px'}}>Benefits of Working with Us</h2>
         <div className='benefits h'>
           {benefits.map((benefit, i) => {
             return (
@@ -75,7 +79,30 @@ const Home = function() {
             );
           })}
         </div>
-
+      </div>
+      <div className='noTile h' style={{justifyContent: 'center', height: '360px'}}>
+        <div className='countTile v'>
+          <div className='countIconContainer v'><FaCakeCandles size={40}/></div>
+          <h1><CountUp n={61}/></h1>
+          <h2>Years in Business</h2>
+        </div>
+        <div className='countTile v'>
+          <div className='countIconContainer v'><HiMiniUserGroup size={48}/></div>
+          <h1><CountUp n={28}/></h1>
+          <h2>Employees</h2>
+        </div>
+        <div className='countTile v'>
+          <div className='countIconContainer v'><FaLocationDot size={40}/></div>
+          <h1><CountUp n={3}/></h1>
+          <h2>Locations</h2>
+        </div>
+      </div>
+      <div className='helpTile blueTile v c'>
+        <div className='v c' style={{width: '80%'}}>
+          <h1>Need Help?</h1>
+          <h2>Please reach out to us with any inquiries you have and we'll promptly respond.</h2>
+          <div className='whiteButton' onClick={()=>{st.setPage('contact')}}>CONTACT US!</div>
+        </div>
       </div>
     </div>
   );
