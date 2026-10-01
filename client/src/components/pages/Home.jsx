@@ -18,10 +18,10 @@ import {FaCakeCandles} from "react-icons/fa6";
 import {FaLocationDot} from "react-icons/fa6";
 
 const images = [
-  {src: '/images/sloan/sloan1.jpeg', alt: 'Sloan'},
-  {src: '/images/sloan/sloan2.jpg', alt: 'Sloan'},
-  {src: '/images/sloan/sloan3.jpg', alt: 'Sloan'},
-  {src: '/images/sloan/sloan4.jpg', alt: 'Sloan'}
+  {src: './images/sloan/sloan1.jpeg', alt: 'Sloan'},
+  {src: './images/sloan/sloan2.jpg', alt: 'Sloan'},
+  {src: './images/sloan/sloan3.jpg', alt: 'Sloan'},
+  {src: './images/sloan/sloan4.jpg', alt: 'Sloan'}
 ];
 
 const benefits = [
@@ -38,7 +38,7 @@ const Home = function() {
   return (
     <div className='home page v'>
       <div className='heroTile tile h'>
-        <img className='heroImage fade' src='/images/dss_hero.jpg'/>
+        <img className='heroImage fade' src='./images/dss_hero.jpg'/>
         <div className='heroInfo'>
           <h2>The Plumbing Manufacturer's Rep Agency <br/>that works for YOU!</h2>
           <h3>We help you <b>specify, procure, install,</b> and <b>maintain</b> the best plumbing products on the market.</h3>

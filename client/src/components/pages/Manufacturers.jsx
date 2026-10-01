@@ -12,7 +12,7 @@ const Manufacturers = function() {
           From toilets, urinals, and sinks to faucets, valves, piping, drains, carriers, bottle fillers, showers, 
           and more, our brands deliver products engineered for performance, efficiency, and water conservation.</h3>
         </div>
-        <img className='manufacturersLogos' src='/images/manufacturer_logos.png'/>
+        <img className='manufacturersLogos' src='./images/manufacturer_logos.png'/>
       </div>
       <div className='brandsTile noTile h c'>
         {brands.map((brand, i)=>{
