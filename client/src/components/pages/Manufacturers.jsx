@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
 import '../../styles/manufacturers.css';
-import st from 'ryscott-st';
 
 const Manufacturers = function() {
   return (
     <div className='manufacturers page v'>
-      <div className='blueTile manTile v'>
+      <div className='blueTile manTile introTile v'>
         <div style={{width: '80%'}}>
           <h1>MANUFACTURERS</h1>
           <h3>We represent leading manufacturers recognized for their quality, reliability, and innovation, across every area of plumbing, behind the wall and in front of it.

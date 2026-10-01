@@ -17,7 +17,6 @@ import {HiMiniUserGroup} from "react-icons/hi2";
 import {FaCakeCandles} from "react-icons/fa6";
 import {FaLocationDot} from "react-icons/fa6";
 
-
 const images = [
   {src: '/images/sloan/sloan1.jpeg', alt: 'Sloan'},
   {src: '/images/sloan/sloan2.jpg', alt: 'Sloan'},
@@ -84,7 +83,7 @@ const Home = function() {
       <div className='noTile h' style={{justifyContent: 'center', height: '360px'}}>
         <div className='countTile v'>
           <div className='countIconContainer v'><FaCakeCandles size={40}/></div>
-          <h1><CountUp n={61}/></h1>
+          <h1><CountUp n={63}/></h1>
           <h2>Years in Business</h2>
         </div>
         <div className='countTile v'>
@@ -96,13 +95,6 @@ const Home = function() {
           <div className='countIconContainer v'><FaLocationDot size={40}/></div>
           <h1><CountUp n={3}/></h1>
           <h2>Locations</h2>
-        </div>
-      </div>
-      <div className='helpTile blueTile v c'>
-        <div className='v c' style={{width: '80%'}}>
-          <h1>Need Help?</h1>
-          <h2>Please reach out to us with any inquiries you have and we'll promptly respond.</h2>
-          <div className='whiteButton' onClick={()=>{st.setPage('contact')}}>CONTACT US!</div>
         </div>
       </div>
     </div>

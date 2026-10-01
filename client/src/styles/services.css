@@ -1,0 +1,26 @@
+.servicesInfo {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.serviceTile {
+  background: white;
+  padding: 16px 12px;
+  margin: 12px;
+  color: var(--navy);
+  border-radius: 12px;
+  width: 360px;
+  text-align: center;
+  justify-content: start;
+  text-shadow: none;
+  -webkit-text-stroke: 0px;
+}
+
+.serviceTitle svg {
+  margin: 4px;
+}
+
+.serviceIconContainer {
+  width: 48px;
+  height: 48px;
+}

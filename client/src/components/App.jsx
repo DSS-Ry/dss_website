@@ -11,6 +11,7 @@ import Manufacturers from './pages/Manufacturers.jsx';
 import Services from './pages/Services.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
+import HelpTile from './HelpTile.jsx';
 
 const mobile_break = 769;
 
@@ -40,10 +41,15 @@ const App = function() {
     window.addEventListener('resize', handleResize);
   }, []);
 
+  useEffect(()=>{
+    document.querySelector('#app').scrollTop = 0;
+  }, [page]);
+
   return (
     <div id='app' className='app'>
       <Nav/>
       {pages[page]}
+      {page != 'contact' && <HelpTile/>}
       <Foot/>
     </div>
   );

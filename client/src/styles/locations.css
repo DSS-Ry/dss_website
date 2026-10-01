@@ -1,0 +1,73 @@
+.locations {
+  height: unset;
+  margin-bottom: 72px;
+  padding: 24px 0;
+  width: 1200px;
+}
+
+.locations .locationTitle {
+  padding: 0;
+  margin: 0 0 24px;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.locationInfo * {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: var(--navy);
+  text-shadow: none;
+  text-align: center;
+  justify-content: start;
+}
+
+.locations .locationAddress {
+  display: flex;
+  flex-direction: column;
+}
+
+.locations .locationPhone {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  transition: font-weight 0.25s;
+}
+
+.locationPhone:hover {
+  font-weight: 800;
+}
+
+.locationMap {
+  display: block;
+  width: 100%;
+  height: 450px;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0px 2px 2px 1px #295d8e54;
+}
+
+.location {
+  text-align: center;
+  background: #ffffffd1;
+  padding: 24px;
+  border-radius: 6px;
+}
+
+@media (max-width: 769px) {
+  .locations {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .locations .locationTitle {
+    font-size: 36px;
+  }
+
+  .locations .locationMap {
+    height: 350px;
+  }
+}

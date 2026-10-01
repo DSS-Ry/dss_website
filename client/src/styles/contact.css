@@ -1,0 +1,65 @@
+.contactTile {
+  width: 1200px;
+}
+
+.quoteTile {
+  background: var(--navy);
+  color: white;
+  padding: 24px;
+  width: 720px;
+  border-radius: 6px;
+  align-self: flex-start;
+  margin: 24px 0;
+}
+
+.quoteTile .whiteButton {
+  margin: 12px;
+  margin-top: 16px;
+}
+
+.quoteInfo {
+  padding: 16px;
+}
+
+.quoteInfo h2 {
+  padding: 0 0 24px;
+}
+
+.socialTile {
+  background: white;
+  margin: 24px 0;
+  border-radius: 6px;
+  margin-left: 36px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0px 2px 2px 1px var(--shadow);
+}
+
+.socialTile h3 {
+  padding-top: 24px;
+}
+
+.socialLinks a {
+  width: 120px;
+  aspect-ratio: 1;
+  padding-top: 12px;
+}
+
+.socialLinks svg {
+  transition: width 0.1s, height 0.1s ease;
+}
+
+.inSvg:hover {
+  width: 84px;
+  height: 84px;
+}
+
+.igSvg:hover {
+  width: 96px;
+  height: 96px; 
+}
+
+.fbSvg:hover {
+  width: 80px;
+  height: 80px;
+}

@@ -190,7 +190,6 @@ div {
 
 .page {
   margin-top: 140px;
-  margin-bottom: 40px;
 }
 
 .tile {
@@ -212,6 +211,19 @@ div {
   color: white;
   text-shadow: 0px 6px 2px #295d8e8c;
   border-radius: 6px;
+}
+
+.introTile {
+  height: auto;
+  text-align: center;
+}
+
+.introTile * {
+  padding: 24px;
+}
+
+.introTile h1 {
+  padding: 0 0 8px 0;
 }
 
 .noTile {
