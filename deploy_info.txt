@@ -1,0 +1,17 @@
+*** Run these separately.
+
+
+powershell.exe -NoProfile
+
+---
+
+$project = '\\wsl$\Ubuntu\home\ranger\dss\dss_website'
+$repo = git -C $project remote get-url origin
+
+if ($LASTEXITCODE -eq 0) {
+    Set-Location $env:USERPROFILE
+    $env:CACHE_DIR = Join-Path $env:LOCALAPPDATA 'dss-pages-cache'
+    $env:NODE_DEBUG = 'gh-pages'
+
+    node "$project\node_modules\gh-pages\bin\gh-pages.js" -d "$project\client\dist" -r "$repo"
+}
