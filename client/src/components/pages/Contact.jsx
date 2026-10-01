@@ -33,7 +33,7 @@ const Contact = function() {
           <h3>Connect with us on social media to stay informed!</h3>
           <div className='socialLinks h'>
             <a href='https://www.linkedin.com/company/diversified-spec-sales/'><FaLinkedin className='inSvg' size={72}/></a>
-            <a href='https://www.instagram.com/diversifiedspecsales/'><AiFillInstagram className='igSvg' size={76}/></a>
+            <a href='https://www.instagram.com/diversifiedspecsales/'><AiFillInstagram className='igSvg' size={78}/></a>
             <a href='https://www.facebook.com/profile.php?id=100068991712387'><FaFacebook className='fbSvg' size={68}/></a>
           </div>
         </div>

@@ -131,7 +131,7 @@ div {
 /* */
 
 .head, .foot {
-  width: 100%;
+  width: calc(100% - 6px);
   flex: none;
   background: white;
   align-items: center;
@@ -140,6 +140,7 @@ div {
 .head {
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 10;
   height: 140px;
   border-bottom: 1px solid #e2e6ea;
@@ -150,6 +151,7 @@ div {
 .foot {
   position: absolute;
   bottom: 0;
+  left: 0;
   height: 40px;
   border-top: 1px solid #5c8bb4;
   z-index: 10;
@@ -281,16 +283,20 @@ div {
 
 /* SCROLLBAR */
 
-::-webkit-scrollbar {
-  background-color: var(--bg);
+.app::-webkit-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  background-color: white;
   border-style: none;
   width: 6px;
 
-  height: 98%;
+  height: 100%;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--turq);
+.app::-webkit-scrollbar-thumb {
+  background-color: var(--navy);
 }
 
 

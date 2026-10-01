@@ -21,6 +21,11 @@
   height: 48px;
 }
 
+.storyTile {
+  padding: 24px 36px;
+  text-align: justify;
+}
+
 .storyTile h1 {
   padding: 16px 0 30px 0;
 }
