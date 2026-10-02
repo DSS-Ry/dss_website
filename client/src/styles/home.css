@@ -108,5 +108,11 @@
 }
 
 @media (max-width: 769px) {
-  
+  .heroTile {
+    justify-content: center;
+    padding: 12px;
+    margin: 12px;
+    width: 90svw;
+    height: unset;
+  }
 }

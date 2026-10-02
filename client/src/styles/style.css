@@ -301,5 +301,14 @@ div {
 
 
 @media (max-width: 769px) {
-  
+  .head {
+    height: 100px;
+  }
+
+  .logoDropSvg,
+  .logoTextSvg {
+    height: 80%;
+    margin: 0 12px;
+    position: absolute;
+  }
 }
