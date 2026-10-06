@@ -9,6 +9,7 @@ const pages = ['home', 'manufacturers', 'services', 'about', 'contact'];
 const Nav = function() {
   const [isOpen, setIsOpen] = useState(false);
   const [navHeight, setNavHeight] = useState(window.innerWidth < 1024 ? 80 : 140);
+  const [logoLimit, setLogoLimit] = useState(window.innerWidth < 1024 ? 60 : 80);
   const toggle = useRef(null);
 
   const handleClick = function(page) {
@@ -52,7 +53,7 @@ const Nav = function() {
     <header className='head h' style={{height: `${navHeight}px`}} onKeyDown={handleKeyDown}>
       <button type='button' className='homeLogo' aria-label='Diversified Spec. Sales home' onClick={()=>{handleClick('home')}}>
         <img className='logoDropSvg' src='images/logo_drop.svg' alt=''/>
-        <img className={`logoTextSvg ${navHeight > 80 ? 'visible' : 'hidden'}`} src='images/logo_text.svg' alt=''/>
+        <img className={`logoTextSvg ${navHeight > logoLimit ? 'visible' : 'hidden'}`} src='images/logo_text.svg' alt=''/>
       </button>
       <button
         type='button'
