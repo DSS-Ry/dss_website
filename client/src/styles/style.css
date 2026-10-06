@@ -8,7 +8,7 @@
 html { 
   height: 100%;
   overflow-x: hidden;
-  background-image: url("/client/dist/images/skyline.png");
+  background-image: url("../../dist/images/skyline.png");
   background-color: #559ddc;
   background-size: 1920px 1280px;
   background-position: left top;
