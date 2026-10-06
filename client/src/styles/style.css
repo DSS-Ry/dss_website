@@ -42,9 +42,15 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background: url("../texture.svg"), linear-gradient(180deg, white 2%, transparent 50%, #559ddc 95%);
-  background-size: 4px 4px, auto;
-  background-position: center;
-  background-repeat: repeat, no-repeat;
+  background-size: 4px 4px, 1920px 1280px;
+  background-position: center, left top;
+  background-repeat: repeat, repeat-x;
+}
+
+@media (max-width: 1023px) {
+  body::before {
+    background-size: 4px 4px, 960px 640px;
+  }
 }
 
 #app {
