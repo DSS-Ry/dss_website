@@ -9,21 +9,15 @@ html {
   height: 100%;
   overflow-x: hidden;
   background-image: url("/client/dist/images/skyline.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 1920px 1280px;
+  background-position: left top;
   background-attachment: fixed;
  
 }
 
 @media (max-width: 1023px) {
   html {
-    background-size: auto 100lvh;
-  }
-}
-
-@media (max-width: 1023px) and (orientation: landscape) {
-  html {
-    background-size: 100lvw auto;
+    background-size: 960px 640px;
   }
 }
 
