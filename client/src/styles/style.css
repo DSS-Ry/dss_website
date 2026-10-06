@@ -9,15 +9,17 @@ html {
   height: 100%;
   overflow-x: hidden;
   background-image: url("/client/dist/images/skyline.png");
+  background-color: #559ddc;
   background-size: 1920px 1280px;
   background-position: left top;
+  background-repeat: no-repeat;
   background-attachment: fixed;
  
 }
 
 @media (max-width: 1023px) {
   html {
-    background-size: 960px 640px;
+    background-size: 1440px 960px;
   }
 }
 
@@ -42,14 +44,15 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background: url("../texture.svg"), linear-gradient(180deg, white 2%, transparent 50%, #559ddc 95%);
+  background-color: #559ddc;
   background-size: 4px 4px, 1920px 1280px;
   background-position: center, left top;
-  background-repeat: repeat, repeat-x;
+  background-repeat: repeat, no-repeat;
 }
 
 @media (max-width: 1023px) {
   body::before {
-    background-size: 4px 4px, 960px 640px;
+    background-size: 4px 4px, 1440px 960px;
   }
 }
 
