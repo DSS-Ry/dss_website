@@ -452,11 +452,6 @@ a:focus-visible, button:focus-visible {
     max-width: 100%;
   }
 
-  .homeLogo .logoTextSvg {
-    visibility: visible;
-    opacity: 1;
-  }
-
   .menuToggle {
     display: flex;
     align-items: center;
