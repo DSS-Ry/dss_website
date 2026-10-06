@@ -15,6 +15,18 @@ html {
  
 }
 
+@media (max-width: 1023px) {
+  html {
+    background-size: auto 100lvh;
+  }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  html {
+    background-size: 100lvw auto;
+  }
+}
+
 html, body, #root {
   min-height: 100%;
   width: 100%;
