@@ -39,3 +39,35 @@
 .storyText h3 {
   font-size: 1.4rem;
 }
+
+.aboutTile {
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .about > .noTile.h {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .aboutTile {
+    flex: 1 1 240px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutTile {
+    flex-basis: 100%;
+    width: 100%;
+    padding: 24px 16px;
+  }
+
+  .storyText {
+    column-count: 1;
+  }
+
+  .storyTile {
+    text-align: left;
+  }
+}

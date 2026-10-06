@@ -13,7 +13,7 @@ import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import HelpTile from './HelpTile.jsx';
 
-const mobile_break = 769;
+const mobile_break = 1024;
 
 const pages = {
   home: <Home/>,
@@ -39,10 +39,14 @@ const App = function() {
     };
 
     window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(()=>{
-    document.querySelector('#app').scrollTop = 0;
+    window.scrollTo({top: 0, left: 0, behavior: 'instant'});
   }, [page]);
 
   return (

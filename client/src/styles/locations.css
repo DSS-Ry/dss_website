@@ -1,8 +1,7 @@
 .locations {
   height: unset;
-  margin-bottom: 72px;
+  margin-bottom: 48px;
   padding: 24px 0;
-  width: 1200px;
 }
 
 .locations .locationTitle {
@@ -69,5 +68,59 @@
 
   .locations .locationMap {
     height: 350px;
+  }
+}
+
+.locations {
+  width: min(1200px, calc(100% - 48px));
+  flex-shrink: 0;
+}
+
+.locations {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.location {
+  min-width: 0;
+}
+
+.locationInfo {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1023px) {
+  .locations {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .locations .locationMap {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .locations {
+    width: calc(100% - 24px);
+    margin: 12px;
+  }
+
+  .locations {
+    padding: 0;
+    margin-bottom: 36px;
+  }
+
+  .location {
+    padding: 24px 16px;
+  }
+
+  .locations .locationTitle {
+    font-size: 2rem;
+  }
+
+  .locations .locationMap {
+    height: 280px;
   }
 }

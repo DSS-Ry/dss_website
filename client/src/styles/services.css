@@ -28,3 +28,21 @@
 @media (max-width: 769px) {
   
 }
+
+.servicesInfo {
+  width: 100%;
+  gap: 12px;
+}
+
+.serviceTile {
+  flex: 1 1 300px;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .serviceTile {
+    flex-basis: 100%;
+    width: 100%;
+    padding: 24px 16px;
+  }
+}
