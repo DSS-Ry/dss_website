@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import '../styles/style.css';
 import st from 'ryscott-st';
@@ -12,6 +12,7 @@ import Services from './pages/Services.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import HelpTile from './HelpTile.jsx';
+import LoadingScreen from './LoadingScreen.jsx';
 
 const mobile_break = 1024;
 
@@ -24,6 +25,8 @@ const pages = {
 };
 
 const App = function() {
+  const [isLoading, setIsLoading] = useState(true);
+  const finishLoading = useCallback(() => setIsLoading(false), []);
   const [page, setPage] = st.newState('page', useState('home'));
   const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
@@ -50,14 +53,16 @@ const App = function() {
   }, [page]);
 
   return (
-    <div id='app' className='app'>
+    <>
+    <div id='app' className='app' inert={isLoading ? '' : undefined}>
       <Nav/>
       {pages[page]}
       {page != 'contact' && <HelpTile/>}
       <Foot/>
     </div>
+    {isLoading && <LoadingScreen onComplete={finishLoading}/>}
+    </>
   );
 };
 
 export default App;
-

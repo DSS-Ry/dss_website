@@ -1,3 +1,30 @@
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: white;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+.loadingScreen.isExiting {
+  opacity: 0;
+}
+
+.loadingLogoPosition {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loadingLogo {
+  display: block;
+  height: min(240px, 40vh, 50vw);
+  width: auto;
+  max-width: none;
+}
+
 :root {
   --navy: #295e8e;
   --action: #2277a4;

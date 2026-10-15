@@ -33,17 +33,19 @@
   margin: 24px auto;
 }
 
-.softenerCta .softenerActions { 
-  justify-content: center; 
+.softenerCta .softenerActions {
+  justify-content: center;
 }
 
-.softenerModal h2 { 
+.softenerModal h2 {
   margin: 0 0 12px;
   padding: 0;
 }
 
-.softenerActions { 
-  display: flex; flex-wrap: wrap; gap: 12px; 
+.softenerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .softenerModal .softenerActions .linkButton {
@@ -63,8 +65,8 @@
   background: white;
   text-shadow: none;
   -webkit-text-stroke: 0;
-  box-shadow: 0 24px 80px #0005;
 }
+
 .softenerModal::-webkit-scrollbar {
   width: 6px;
   background-color: white;
@@ -82,33 +84,130 @@
   }
 }
 
-.softenerModal::backdrop { background: #102b46b8; }
-.softenerModalContent { padding: 28px; }
-.softenerModalHeader { display: flex; align-items: flex-start; gap: 20px; justify-content: space-between; }
-.softenerModalHeader h2 { font-size: 1.5rem; }
-.softenerClose { flex-shrink: 0; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #edf5fa; color: var(--navy); font-size: 28px; cursor: pointer; }
-.softenerModal p { line-height: 1.5; }
-.softenerModal fieldset { min-width: 0; border: 1px solid #ccd9e4; border-radius: 8px; padding: 20px; margin: 24px 0; }
-.softenerModal legend { padding: 0 8px; font-weight: 700; }
-.softenerGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.softenerField { display: flex; flex-direction: column; gap: 8px; font-size: 1rem; font-weight: 600; }
-.softenerField input, .softenerField select { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; padding: 10px; border: 1px solid #91a8bc; border-radius: 5px; background: white; color: #18354f; font: inherit; font-weight: 400; }
-.softenerField input:focus-visible, .softenerField select:focus-visible { outline: 3px solid var(--action); outline-offset: 2px; }
-.softenerField small { font-weight: 400; line-height: 1.4; }
-.softenerEmailNote { font-size: .9rem; }
+.softenerModal::backdrop {
+  background: #102b46b8;
+}
+
+.softenerModalContent {
+  padding: 28px;
+}
+
+.softenerModalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.softenerModalHeader h2 {
+  font-size: 1.5rem;
+}
+
+.softenerClose {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #edf5fa;
+  color: var(--navy);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.softenerModal p {
+  line-height: 1.5;
+}
+
+.softenerModal fieldset {
+  min-width: 0;
+  border: 1px solid #ccd9e4;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.softenerModal legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+.softenerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.softenerField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.softenerField input,
+.softenerField select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #91a8bc;
+  border-radius: 5px;
+  background: white;
+  color: #18354f;
+  font: inherit;
+  font-weight: 400;
+}
+
+.softenerField input:focus-visible,
+.softenerField select:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 2px;
+}
+
+.softenerField small {
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.softenerEmailNote {
+  font-size: .9rem;
+}
 
 @media (max-width: 600px) {
-  .quoteTile.softenerCta { width: calc(100% - 24px); }
-  .softenerCta .softenerActions { width: 100%; }
-  .softenerGrid { grid-template-columns: 1fr; }
-  .softenerModalContent { padding: 20px; }
-  .softenerModal fieldset { padding: 16px; }
-  .softenerActions .whiteButton { width: 100%; }
-  .softenerModal .softenerActions .linkButton { width: 100%; }
+  .quoteTile.softenerCta {
+    width: calc(100% - 24px);
+  }
+
+  .softenerCta .softenerActions {
+    width: 100%;
+  }
+
+  .softenerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .softenerModalContent {
+    padding: 20px;
+  }
+
+  .softenerModal fieldset {
+    padding: 16px;
+  }
+
+  .softenerActions .whiteButton {
+    width: 100%;
+  }
+
+  .softenerModal .softenerActions .linkButton {
+    width: 100%;
+  }
 }
 
 @media (max-width: 769px) {
-  
+
 }
 
 .servicesInfo {

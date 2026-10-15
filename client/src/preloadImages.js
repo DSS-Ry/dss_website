@@ -14,13 +14,24 @@ const imageSources = [
 
 // Keep the requests alive and let rendered images reuse the browser cache.
 const preloadedImages = [];
+let ready;
+
+export function waitForImage(image) {
+  const loaded = image.complete ? Promise.resolve() : new Promise((resolve) => {
+    image.addEventListener('load', resolve, {once: true});
+    image.addEventListener('error', resolve, {once: true});
+  });
+  return loaded.then(() => image.decode ? image.decode().catch(() => {}) : undefined);
+}
 
 export default function preloadImages() {
-  if (preloadedImages.length) return;
+  if (ready) return ready;
 
-  imageSources.forEach((src) => {
+  ready = Promise.all(imageSources.map((src) => {
     const image = new Image();
     image.src = src;
     preloadedImages.push(image);
-  });
+    return waitForImage(image);
+  }));
+  return ready;
 }
