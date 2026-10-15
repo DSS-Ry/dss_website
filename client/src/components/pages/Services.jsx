@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import WaterSoftenerModal from '../WaterSoftenerModal.jsx';
 
+import '../../styles/contact.css';
 import '../../styles/services.css';
 
 import {FaChalkboardTeacher} from "react-icons/fa";
@@ -19,6 +21,7 @@ const services = [
 ];
 
 const Services = function() {
+  const [requestType, setRequestType] = useState(null);
   return (
     <div className='services page v'>
       <div className='servicesTile blueTile introTile v'>
@@ -30,6 +33,17 @@ const Services = function() {
           </h3>
         </div>
       </div>
+      <section className='quoteTile softenerCta v' aria-labelledby='softener-heading'>
+        <div className='quoteInfo v'>
+          <h2 id='softener-heading'>Water Softener Sizing Requests</h2>
+          <h3 style={{textAlign: 'center'}}>Find the right water softener for your project. Share your water conditions and usage so our team can help you size a commercial or residential system.</h3>
+        </div>
+        <div className='softenerActions'>
+          <button type='button' className='whiteButton' onClick={() => setRequestType('commercial')}>Commercial Water Softeners</button>
+          <button type='button' className='whiteButton' onClick={() => setRequestType('residential')}>Residential Water Softeners</button>
+        </div>
+      </section>
+      {requestType && <WaterSoftenerModal type={requestType} onClose={() => setRequestType(null)}/>}
       <div className='noTile v' style={{height: 'unset'}}>
         <div className='servicesInfo h'>
           {services.map((service, i) => {
