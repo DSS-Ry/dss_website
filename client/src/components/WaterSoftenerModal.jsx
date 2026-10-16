@@ -112,6 +112,7 @@ const WaterSoftenerModal = function({type, onClose}) {
               {renderField({name: 'name', label: commercial ? 'Contact name' : 'Name', required: true})}
               {renderField({name: 'email', label: 'Email', type: 'email', required: true})}
               {renderField({name: 'phone', label: 'Contact number', type: 'tel', required: true})}
+              {commercial && renderField({name: 'job', label: 'Job name', required: true})}
             </div>
           </fieldset>
           <fieldset>

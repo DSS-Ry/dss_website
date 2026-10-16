@@ -6,10 +6,10 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "build": "webpack --mode=production",
     "start": "webpack --mode=production -w",
     "dev": "webpack serve --open",
-    "server": "node server/index.js -w",
-    "deploy": "gh-pages -d client/dist"
+    "server": "node server/index.js -w"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
