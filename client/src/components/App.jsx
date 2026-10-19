@@ -30,6 +30,7 @@ const App = function() {
   const [page, setPage] = st.newState('page', useState('home'));
   const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
+
   useEffect(()=>{
     const handleResize = function() {
       if (window.innerWidth < mobile_break) {
@@ -54,7 +55,7 @@ const App = function() {
 
   return (
     <>
-    <div id='app' className='app' inert={isLoading ? '' : undefined}>
+    <div id='app' className={`app${isLoading ? ' app-loading' : ''}`} inert={isLoading ? '' : undefined}>
       <Nav/>
       {pages[page]}
       {page != 'contact' && <HelpTile/>}

@@ -11,6 +11,14 @@
   opacity: 0;
 }
 
+.app-loading {
+  visibility: hidden;
+}
+
+.app {
+  visibility: visible;
+}
+
 .loadingLogoPosition {
   position: absolute;
   left: 50%;
@@ -41,7 +49,6 @@ html {
   background-position: left top;
   background-repeat: no-repeat;
   background-attachment: fixed;
- 
 }
 
 @media (max-width: 1023px) {

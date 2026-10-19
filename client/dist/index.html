@@ -15,6 +15,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+      html { background: white; }
+      #initial-loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 3000;
+        display: grid;
+        place-items: center;
+        background: white;
+      }
+      #initial-loading-screen img {
+        display: block;
+        height: min(240px, 40vh, 50vw);
+        width: auto;
+        max-width: none;
+        margin-left: -6px;
+      }
+    </style>
     
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:400,500,600,700&display=swap">
@@ -23,6 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div id="initial-loading-screen" role="status" aria-label="Loading Diversified Spec. Sales">
+      <img src="images/logo_drop.svg" alt="">
+    </div>
     <div id="root"></div>
     <script crossorigin src="bundle.js"></script>
   </body>

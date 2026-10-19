@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import preloadImages, {waitForImage} from '../preloadImages';
 
 const LoadingScreen = function({onComplete}) {
   const [isExiting, setIsExiting] = useState(false);
+
+  useLayoutEffect(() => {
+    // Hand off the first-paint cover only after React's overlay is in the DOM.
+    document.getElementById('initial-loading-screen')?.remove();
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
