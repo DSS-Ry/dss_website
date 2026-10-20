@@ -44,7 +44,7 @@ module.exports = {
   },
 
   plugins: [
-    new Dotenv(),
+    new Dotenv({systemvars: true}),
     new CompressionPlugin({
       filename: "[path][base].gz",
       algorithm: "gzip",
