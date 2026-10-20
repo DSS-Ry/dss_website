@@ -1,4 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
+import emailjs from '@emailjs/browser';
+
+const emailServiceId = process.env.EMAILJS_SERVICE_ID;
+const emailTemplateId = process.env.EMAILJS_WATER_SOFTENER_TEMPLATE_ID;
+const emailPublicKey = process.env.EMAILJS_PUBLIC_KEY;
 
 const residentialFields = [
   {name: 'hardness', label: 'Water hardness (gpg)', type: 'number'},
@@ -33,7 +38,8 @@ const commercialFields = [
 
 const WaterSoftenerModal = function({type, onClose}) {
   const dialog = useRef(null);
-  const [draftOpened, setDraftOpened] = useState(false);
+  const sending = useRef(false);
+  const [status, setStatus] = useState('idle');
   const commercial = type === 'commercial';
   const title = `${commercial ? 'Commercial' : 'Residential'} Water Softener Sizing Request`;
 
@@ -70,15 +76,41 @@ const WaterSoftenerModal = function({type, onClose}) {
     );
   };
 
-  const submit = function(event) {
+  const submit = async function(event) {
     event.preventDefault();
+    if (sending.current || status === 'success') return;
 
-    const answers = Array.from(new FormData(event.currentTarget), ([label, value]) => {
-      return `${label}: ${value || 'Not provided'}`;
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setStatus('unconfigured');
+      return;
+    }
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const answers = Array.from(data, ([label, value]) => {
+      return `${label}: ${String(value).trim() || 'Not provided'}`;
     }).join('\r\n');
 
-    window.location.href = `mailto:quotes@dsshowley.com?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(answers)}`;
-    setDraftOpened(true);
+    sending.current = true;
+    setStatus('sending');
+
+    try {
+      await emailjs.send(emailServiceId, emailTemplateId, {
+        to_email: 'quotes@dsshowley.com',
+        subject: title,
+        request_type: commercial ? 'Commercial' : 'Residential',
+        from_name: String(data.get(commercial ? 'Contact name' : 'Name')).trim(),
+        reply_to: String(data.get('Email')).trim(),
+        phone: String(data.get('Contact number')).trim(),
+        message: answers
+      }, {publicKey: emailPublicKey});
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
+    } finally {
+      sending.current = false;
+    }
   };
 
   const closeBackdrop = function(event) {
@@ -103,8 +135,8 @@ const WaterSoftenerModal = function({type, onClose}) {
           </button>
         </header>
         <p>Tell us about your project. Fields marked * are required; leave unknown measurements blank.</p>
-        <form onSubmit={submit}>
-          <fieldset>
+        <form onSubmit={submit} aria-busy={status === 'sending'}>
+          <fieldset disabled={status === 'sending' || status === 'success'}>
             <legend>Contact information</legend>
             <div className='softenerGrid'>
               {commercial && renderField({name: 'business', label: 'Name of business', required: true})}
@@ -115,7 +147,7 @@ const WaterSoftenerModal = function({type, onClose}) {
               {commercial && renderField({name: 'job', label: 'Job name', required: true})}
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset disabled={status === 'sending' || status === 'success'}>
             <legend>Water and system details</legend>
             <div className='softenerGrid'>
               {commercial && (
@@ -145,21 +177,26 @@ const WaterSoftenerModal = function({type, onClose}) {
             </div>
           </fieldset>
           <p className='softenerEmailNote'>
-            This form opens a draft in your email app addressed to quotes@dsshowley.com.
-            Send the email to complete your request.
+            Submit your request directly to our team at quotes@dsshowley.com.
           </p>
-          {draftOpened && (
-            <p role='status'>
-              Your email draft has been requested. If it did not open, check that an email app is configured.
-              Your answers remain here.
+          {status === 'success' && (
+            <p role='status'>Your sizing request has been sent. Our team will contact you soon.</p>
+          )}
+          {(status === 'error' || status === 'unconfigured') && (
+            <p role='alert'>
+              {status === 'unconfigured'
+                ? 'Online requests are temporarily unavailable.'
+                : 'Your request could not be sent. Please try again.'}
+              {' '}Your answers are still here. You can also email{' '}
+              <a href='mailto:quotes@dsshowley.com'>quotes@dsshowley.com</a>.
             </p>
           )}
           <div className='softenerActions'>
             <button type='button' className='linkButton' onClick={onClose}>
-              Cancel
+              {status === 'success' ? 'Close' : 'Cancel'}
             </button>
-            <button type='submit' className='linkButton'>
-              Create Request Email
+            <button type='submit' className='linkButton' disabled={status === 'sending' || status === 'success'}>
+              {status === 'sending' ? 'Sending…' : status === 'success' ? 'Request Sent' : 'Send Sizing Request'}
             </button>
           </div>
         </form>

@@ -54,6 +54,11 @@
   font-size: 1rem;
 }
 
+.softenerModal .softenerActions .linkButton:disabled {
+  opacity: .65;
+  cursor: default;
+}
+
 .softenerModal {
   box-sizing: border-box;
   width: 1000px;
