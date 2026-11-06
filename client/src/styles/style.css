@@ -463,9 +463,10 @@ a:focus-visible, button:focus-visible {
   gap: 12px;
 }
 
-.links button {
+.links a {
   background: none;
   color: var(--navy);
+  padding: 0 6px;
   padding-top: 2px;
   margin: 0 4px;
   border: 1px solid transparent;
@@ -477,7 +478,7 @@ a:focus-visible, button:focus-visible {
   transition: border-color 0.2s;
 }
 
-.links button:hover, .links button[aria-current='page'] {
+.links a:hover, .links a[aria-current='page'] {
   border-color: var(--navy);
 }
 
@@ -541,7 +542,7 @@ a:focus-visible, button:focus-visible {
     gap: 4px;
   }
 
-  .links button {
+  .links a {
     text-align: left;
   }
 

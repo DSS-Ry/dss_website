@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
 
 import st from 'ryscott-st';
+import PageLink, {pageNames as pages} from './PageLink.jsx';
 
 import {IoMenu} from "react-icons/io5";
 
-const pages = ['home', 'manufacturers', 'services', 'about', 'contact'];
 
 const Nav = function() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,6 @@ const Nav = function() {
   const toggle = useRef(null);
 
   const handleClick = function(page) {
-    st.setPage(page);
     setIsOpen(false);
 
     if (st.isMobile) {
@@ -51,10 +50,10 @@ const Nav = function() {
 
   return (
     <header className='head h' style={{height: `${navHeight}px`}} onKeyDown={handleKeyDown}>
-      <button type='button' className='homeLogo' aria-label='Diversified Spec. Sales home' onClick={()=>{handleClick('home')}}>
+      <PageLink page='home' className='homeLogo' aria-label='Diversified Spec. Sales home' onClick={()=>{handleClick('home')}}>
         <img className='logoDropSvg' src='images/logo_drop.svg' alt=''/>
         <img className={`logoTextSvg ${navHeight > logoLimit ? 'visible' : 'hidden'}`} src='images/logo_text.svg' alt=''/>
-      </button>
+      </PageLink>
       <button
         type='button'
         className='menuToggle'
@@ -69,14 +68,14 @@ const Nav = function() {
       <nav id='primary-navigation' aria-label='Main navigation' className={`links h${isOpen ? ' isOpen' : ''}`}>
         {pages.map((page) => {
           return (
-            <button
-              type='button'
+            <PageLink
+              page={page}
               key={page}
               aria-current={st.page === page ? 'page' : undefined}
               onClick={()=>{handleClick(page)}}
             >
               {page.toUpperCase()}
-            </button>
+            </PageLink>
           );
         })}
       </nav>

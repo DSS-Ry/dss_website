@@ -4,6 +4,7 @@ import '../styles/style.css';
 import st from 'ryscott-st';
 
 import Nav from './Nav.jsx';
+import {pageFromPath} from './PageLink.jsx';
 import Foot from './Foot.jsx';
 
 import Home from './pages/Home.jsx';
@@ -27,9 +28,15 @@ const pages = {
 const App = function() {
   const [isLoading, setIsLoading] = useState(true);
   const finishLoading = useCallback(() => setIsLoading(false), []);
-  const [page, setPage] = st.newState('page', useState('home'));
+  const [page, setPage] = st.newState('page', useState(() => pageFromPath(window.location.pathname)));
   const [isMobile, setIsMobile] = st.newState('isMobile', useState(window.innerWidth < mobile_break));
 
+
+  useEffect(() => {
+    const handlePopState = () => setPage(pageFromPath(window.location.pathname));
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [setPage]);
 
   useEffect(()=>{
     const handleResize = function() {

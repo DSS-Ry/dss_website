@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import '../../styles/home.css';
 import st from 'ryscott-st';
 
+import PageLink from '../PageLink.jsx';
 import Carousel from './Carousel.jsx';
 import CountUp from '../CountUp.jsx';
 
@@ -42,9 +43,9 @@ const Home = function() {
         <div className='heroInfo'>
           <h2>The Plumbing Manufacturer's Rep Agency <br/>that works for YOU!</h2>
           <h3>We help you <b>specify, procure, install,</b> and <b>maintain</b> the best plumbing products on the market.</h3>
-          <button type='button' className='linkButton v' onClick={()=>{st.setPage('services')}}>
+          <PageLink page='services' className='linkButton v'>
             LEARN MORE!
-          </button>
+          </PageLink>
         </div>
       </div>
       <div className='blueTile h c'>
@@ -53,9 +54,9 @@ const Home = function() {
           <h3>We represent the best plumbing manufacturers in the industry, and we are committed to helping you find the right products for your project.</h3>
           <br/>
           <h3>We serve <b>Architects, Contractors, Designers, Engineers, and Wholesalers</b> across Michigan and Ohio, on park projects, schools, businesses of all sizes, sports and entertainment arenas, and more.</h3>
-          <button type='button' className='whiteButton v' onClick={()=>{st.setPage('manufacturers')}}>
+          <PageLink page='manufacturers' className='whiteButton v'>
             OUR MANUFACTURERS
-          </button>
+          </PageLink>
         </div>
         <Carousel images={images}/>
       </div>

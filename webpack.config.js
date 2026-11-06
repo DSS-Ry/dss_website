@@ -7,6 +7,7 @@ module.exports = {
   entry: "./client/src/index.jsx",
   output: {
     path: path.join(__dirname, 'client/dist'),
+    publicPath: "/",
     filename: "bundle.js"
   },
   optimization: {
@@ -36,6 +37,7 @@ module.exports = {
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'client/dist'),
     },

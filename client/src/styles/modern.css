@@ -25,10 +25,10 @@ a:hover { color: var(--action); }
 .homeLogo { width: 260px; }
 .homeLogo img { height: 58px; top: 50%; transform: translateY(-50%); margin: 0; }
 .links { position: static; margin: 0; gap: 24px; }
-.links button { font-size: 11px; font-weight: 550; letter-spacing: 1.25px; padding: 10px 0; border: 0; border-radius: 0; border-bottom: 1px solid transparent; margin: 0; }
-.links button:hover, .links button[aria-current='page'] { border-bottom-color: var(--action); color: var(--action); }
-.links button:last-child { background: var(--navy); color: white; padding: 12px 20px; border: 0; }
-.links button:last-child:hover { background: var(--action); }
+.links a { font-size: 11px; font-weight: 550; letter-spacing: 1.25px; padding: 10px 0; border: 0; border-radius: 0; border-bottom: 1px solid transparent; margin: 0; }
+.links a:hover, .links a[aria-current='page'] { border-bottom-color: var(--action); color: var(--action); }
+.links a:last-child { background: var(--navy); color: white; padding: 12px 20px; border: 0; }
+.links a:last-child:hover { background: var(--action); }
 .page { margin-top: 88px; padding-top: 36px; gap: 0; }
 .tile, .blueTile, .noTile { width: min(1240px, calc(100% - 104px)); margin: 0 0 48px; padding: 48px; border-radius: 2px; height: auto; box-shadow: none; text-shadow: none; -webkit-text-stroke: 0; }
 .tile { background: var(--surface); border: 1px solid var(--line); }
@@ -124,8 +124,8 @@ a:hover { color: var(--action); }
   .head { padding-inline: 24px; }
   .homeLogo { max-width: calc(100% - 60px); }
   .links { position: absolute; top: 100%; background: var(--paper); padding: 20px 24px; border-bottom: 1px solid var(--line); }
-  .links button { padding: 14px 0; }
-  .links button:last-child { margin-top: 8px; }
+  .links a { padding: 14px 0; }
+  .links a:last-child { margin-top: 8px; }
   .page { margin-top: 88px; padding-top: 24px; }
   .tile, .blueTile, .noTile, .contactTile, .locations, .quoteTile.softenerCta { width: calc(100% - 48px); }
   .heroInfo { width: 56%; padding: 36px; }
