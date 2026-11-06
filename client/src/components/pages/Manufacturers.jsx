@@ -16,7 +16,7 @@ const Manufacturers = function() {
       </div>
       <div className='linecardTile v c'>
         <h2>Looking for a complete list of our manufacturers?</h2>
-        <a className='whiteButton' href='mailto:mjohnson@dsshowley.com'>
+        <a className='whiteButton' href='mailto:mjohnson@dsshowley.com?subject=Linecard%20Inquiry&body=Hello%2C%0D%0A%0D%0APlease%20send%20me%20a%20copy%20of%20your%20current%20linecard.%0D%0A%0D%0AThank%20you!'>
           Request a Linecard
         </a>
       </div>
