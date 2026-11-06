@@ -14,7 +14,7 @@ const Manufacturers = function() {
         </div>
         <img className='manufacturersLogos' src='./images/manufacturer_logos.png'/>
       </div>
-      <div className='brandsTile noTile h c'>
+      {/* <div className='brandsTile noTile h c'>
         {brands.map((brand, i)=>{
           return (
             <div className='brandTile v c' key={i}>
@@ -22,7 +22,7 @@ const Manufacturers = function() {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
