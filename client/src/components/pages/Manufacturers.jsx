@@ -14,6 +14,12 @@ const Manufacturers = function() {
         </div>
         <img className='manufacturersLogos' src='./images/manufacturer_logos.png'/>
       </div>
+      <div className='linecardTile v c'>
+        <h2>Looking for a complete list of our manufacturers?</h2>
+        <a className='whiteButton' href='mailto:mjohnson@dsshowley.com'>
+          Request a Linecard
+        </a>
+      </div>
       {/* <div className='brandsTile noTile h c'>
         {brands.map((brand, i)=>{
           return (

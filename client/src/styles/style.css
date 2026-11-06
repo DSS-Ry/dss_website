@@ -580,12 +580,9 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 600px) {
-  .tile, .blueTile, .noTile {
+  .tile, .blueTile, .noTile, .linecardTile {
     width: calc(100% - 24px);
     margin: 12px;
-  }
-
-  .tile, .blueTile, .noTile {
     padding: 20px 16px;
   }
 
